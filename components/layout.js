@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "./Layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
+import { Fragment } from "react";
 
 const name = "German Ruiz";
 export const siteTitle = "Next.js Sample Website";
@@ -26,16 +27,16 @@ export default function Layout({ children, home }) {
       </Head>
       <header className={styles.header}>
         {home ? (
-          <div>
+          <Fragment>
             <img
               src="/images/profile.jpg"
               className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
               alt={name}
             />
             <h1 className={utilStyles.heading2Xl}>{name}</h1>
-          </div>
+          </Fragment>
         ) : (
-          <div>
+          <Fragment>
             <Link href="/">
               <a>
                 <img
@@ -50,7 +51,7 @@ export default function Layout({ children, home }) {
                 <a className={utilStyles.colorInherit}>{name}</a>
               </Link>
             </h2>
-          </div>
+          </Fragment>
         )}
       </header>
       <main>{children}</main>
